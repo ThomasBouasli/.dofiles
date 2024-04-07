@@ -21,6 +21,7 @@ function install_zsh() {
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
     git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+    chsh -s "$(which zsh)"
 }
 
 function install_nerd_fonts() {
@@ -120,6 +121,9 @@ function install_flatpak() {
 }
 
 function costumize_gnome() {
+
+    should_isntall "Pop OS desktop environment" "sudo apt install pop-desktop"
+
     sudo apt-get install gnome-tweaks
 
     git clone https://github.com/vinceliuice/WhiteSur-gtk-theme

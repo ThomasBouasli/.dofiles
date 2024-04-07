@@ -40,9 +40,20 @@ export NVM_DIR="$HOME/.nvm"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # pnpm
-export PNPM_HOME="/home/bouasli/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+function brightness() {
+  displays=$(xrandr | grep " connected" | cut -f1 -d " ")
+  displays=$(echo $displays | tr ' ' '\n' | fzf -m)
+
+  for display in $displays; do
+    echo "Setting brightness to $1 for $display"
+    xrandr --output $display --brightness $1
+  done
+}
