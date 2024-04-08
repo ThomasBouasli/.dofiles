@@ -10,6 +10,7 @@ local mappings = {
 	require("plugins.config.treesitter").keymap,
 	require("plugins.config.whichkey").keymap,
 	require("plugins.config.tmux").keymap,
+	require("plugins.config.cmp").keymap,
 }
 
 wk.register(mappings)

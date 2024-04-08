@@ -23,6 +23,7 @@ local plugins = {
 	require("plugins.config.null-ls").plugin,
 	require("plugins.config.copilot").plugin,
 	require("plugins.config.tmux").plugin,
+	require("plugins.config.cmp").plugin,
 }
 
 require("lazy").setup(plugins)
